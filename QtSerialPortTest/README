@@ -1,0 +1,13 @@
+Le but de ce programme était de configurer et utiliser un port série pour communiquer avec d'autres systèmes 
+en utilisant Qt, en permettant à l'utilisateur de sélectionner un port, configurer les paramètres de communication, 
+et envoyer/recevoir des données via une interface graphique.
+
+Voici les étapes principales du programme :
+- Configuration du projet pour utiliser le module serialport;
+- Instanciation d'un objet de type QSerialPort;
+- Utilisation de QSerialPortInfo::availablePorts() pour lister les ports disponibles;
+- Ajout d'une combobox pour sélectionner un port;
+- Implémentation d'un slot pour ouvrir et configurer le port choisi;
+- Configuration des paramètres de communication : débit, bits de données, parité, bits de stop;
+- Utilisation du signal readyRead() pour détecter la réception de données;
+- Envoi et reception des données en utilisant les méthodes de lecture et d'écriture similaires à QTcpSocket.

@@ -1,5 +1,4 @@
-Le but de ce programme était de configurer et utiliser un port série pour communiquer avec d'autres systèmes 
-en utilisant Qt, en permettant à l'utilisateur de sélectionner un port, configurer les paramètres de communication, 
+Le but de ce programme était de configurer et utiliser un port série pour communiquer avec d'autres systèmes en utilisant Qt, en permettant à l'utilisateur de sélectionner un port, configurer les paramètres de communication, 
 et envoyer/recevoir des données via une interface graphique.
 
 Voici les étapes principales du programme :

@@ -1,0 +1,10 @@
+Le but de ce programme était de créer un client TCP capable de se connecter à un serveur TCP,
+d'envoyer et de recevoir des données via le réseau en utilisant les modules de Qt dans Visual Studio.
+
+Voici les étapes principales du programme :
+- Ajout des modules Qt requis dans Visual Studio;
+- Création un client TCP avec QTcpSocket;
+- Établissement de la connexion avec connectToHost();
+- Gestion de la connexion avec connected() et readyRead();
+- Envoi et reception des données avec write() et read();
+- Test avec Hercules.

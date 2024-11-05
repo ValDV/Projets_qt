@@ -1,0 +1,15 @@
+Le but de ce projet est de développer une application cliente et une application serveur TCP/IP en C++ avec Qt 
+pour permettre la communication entre les deux et afficher des informations de température et d’hygrométrie.
+
+Etapes :
+
+Côté Client :
+- IHM : Créer une interface simple pour choisir les données (température en °C, °F, ou hygrométrie en %);
+- Connexion : Paramétrer l’IP et le port, afficher l’état de connexion;
+- Envoi/Réception : Envoyer une requête et recevoir la réponse du serveur;
+- Affichage : Montrer les données reçues avec les unités.
+
+Côté Serveur :
+- Traitement : Recevoir et traiter la requête client;
+- Simulation : Générer des valeurs aléatoires pour la température et l’hygrométrie;
+- Réponse : Transmettre le résultat au client.

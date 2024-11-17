@@ -8,3 +8,17 @@ Voici les étapes principales du programme :
 - Gestion de la connexion avec connected() et readyRead();
 - Envoi et reception des données avec write() et read();
 - Test avec Hercules.
+
+
+#################### Mise en place ####################
+
+Prérequis : 
+- Avoir Visual Studio avec Qt de configuré,
+- Avoir Hercules d'installé.
+
+Démarrer Hercules, aller dans TCP Server et lancer l'écoute sur le port choisi.
+Renseigner l'adresse ip et le port dans l'interface Qt et lancer la connexion.
+On peut ensuite envoyer des messages entre l'interface Qt et Hercules.
+
+
+

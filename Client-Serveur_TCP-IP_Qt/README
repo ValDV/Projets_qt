@@ -13,3 +13,10 @@ Côté Serveur :
 - Traitement : Recevoir et traiter la requête client;
 - Simulation : Générer des valeurs aléatoires pour la température et l’hygrométrie;
 - Réponse : Transmettre le résultat au client.
+
+
+############################## Mise en place ##############################
+
+Prérequis : Avoir Visual Studio avec Qt de configuré
+
+/!\ Pour lancer la communication entre le serveur et le client il faut toujours démarrer le serveur en premier.

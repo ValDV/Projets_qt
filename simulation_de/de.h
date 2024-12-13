@@ -12,8 +12,16 @@ class De : public QWidget
     Q_OBJECT
 
 public:
-    explicit De(QWidget *parent = nullptr);
+    explicit De(int n = 0, QWidget *parent = nullptr);
     ~De();
+
+    De& operator++();
+    De operator++(int);
+    De& operator=(int n);
+    De& operator=(const De& other);
+    De(const De& other);
+    operator int() const;
+    De& operator+=(int& n);
 
 private slots:
     void afficherValeur();

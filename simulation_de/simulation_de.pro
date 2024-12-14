@@ -16,14 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dehisto.cpp \
     main.cpp \
     de.cpp
 
 HEADERS += \
-    de.h \
+    de.h \ \
+    dehisto.h
 
 FORMS += \
-    de.ui
+    de.ui \
+    dehisto.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

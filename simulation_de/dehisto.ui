@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dehisto</class>
+ <widget class="QWidget" name="Dehisto">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dehisto</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QPushButton" name="buttonSimuler">
+     <property name="text">
+      <string>Simuler plusieurs jets</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="buttonAfficher">
+     <property name="text">
+      <string>Afficher historique</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tableHistorique">
+     <property name="columnCount">
+      <number>1</number>
+     </property>
+     <property name="rowCount">
+      <number>6</number>
+     </property>
+     <property name="horizontalHeaderLabels">
+      <stringlist>
+       <string>Valeurs des jets</string>
+      </stringlist>
+     </property>
+     <column>
+      <property name="text">
+       <string>Valeurs des jets</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

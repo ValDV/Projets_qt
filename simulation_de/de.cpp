@@ -14,7 +14,7 @@ De::De(int n, QWidget *parent) :
     srand(static_cast<unsigned int>(time(0)));
 
     if (n > 0) {
-        valeur = n; // Initialisation avec une valeur spécifique si n > 0
+        valeur = n;
     }
 
     connect(ui->buttonAfficherValeur, &QPushButton::clicked, this, &De::afficherValeur);

@@ -1,19 +1,36 @@
 #include "de.h"
+#include "dehisto.h"
 #include <QApplication>
+#include <QMainWindow>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    De dd;
-    int n = 0;
+    QMainWindow mainWindow;
+    QWidget *centralWidget = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(centralWidget);
 
-    dd++;
-    dd += n;
-    dd = 0;
+    QPushButton *buttonDe = new QPushButton("Lancer De", &mainWindow);
+    QPushButton *buttonDehisto = new QPushButton("Lancer Dehisto", &mainWindow);
 
-    De w;
-    w.show();
+    layout->addWidget(buttonDe);
+    layout->addWidget(buttonDehisto);
+
+    mainWindow.setCentralWidget(centralWidget);
+    mainWindow.show();
+
+    QObject::connect(buttonDe, &QPushButton::clicked, [&]() {
+        De *de = new De();
+        de->show();
+    });
+
+    QObject::connect(buttonDehisto, &QPushButton::clicked, [&]() {
+        Dehisto *dehisto = new Dehisto();
+        dehisto->show();
+    });
 
     return a.exec();
 }

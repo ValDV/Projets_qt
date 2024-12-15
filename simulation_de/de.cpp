@@ -11,6 +11,8 @@ De::De(int n, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("de");
+
     srand(static_cast<unsigned int>(time(0)));
 
     if (n > 0) {
@@ -51,7 +53,6 @@ void De::afficherValeur() {
 
 void De::tirerDe() {
     valeur = rand() % 6 + 1;
-    ui->labelValeurDe->setText(QString::number(valeur));
     score += valeur;
 }
 

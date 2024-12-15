@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
     QWidget *centralWidget = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout(centralWidget);
 
-    QPushButton *buttonDe = new QPushButton("Lancer De", &mainWindow);
-    QPushButton *buttonDehisto = new QPushButton("Lancer Dehisto", &mainWindow);
+    QPushButton *buttonDe = new QPushButton("de", &mainWindow);
+    QPushButton *buttonDehisto = new QPushButton("dehisto", &mainWindow);
 
     layout->addWidget(buttonDe);
     layout->addWidget(buttonDehisto);
@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
     });
 
     QObject::connect(buttonDehisto, &QPushButton::clicked, [&]() {
-            static DeHisto *dehisto = new DeHisto();
-            dehisto->show();
+        static Dehisto *dehisto = new Dehisto();
+        dehisto->show();
     });
 
     return a.exec();

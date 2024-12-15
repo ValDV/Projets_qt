@@ -1,63 +1,66 @@
 #include "dehisto.h"
 #include "ui_dehisto.h"
-#include <QRandomGenerator>
+#include <cstdlib>
+#include <ctime>
 #include <QTableWidgetItem>
 
-DeHisto::DeHisto(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::DeHisto)
-    , derniereValeur(0)
+Dehisto::Dehisto(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Dehisto),
+    valeurDe(0),
+    nombreJets(0)
 {
     ui->setupUi(this);
 
-    ui->tableHistorique->setColumnCount(1);
-    ui->tableHistorique->setRowCount(6);
-    ui->tableHistorique->setHorizontalHeaderLabels({"Valeurs"});
+    this->setWindowTitle("dehisto");
+
+    connect(ui->buttonTirerDe, &QPushButton::clicked, this, &Dehisto::tirerDe);
+    connect(ui->buttonAfficherValeur, &QPushButton::clicked, this, &Dehisto::afficherValeurDe);
+    connect(ui->buttonNombreJets, &QPushButton::clicked, this, &Dehisto::simulerNombreJets);
+    connect(ui->buttonHistorique, &QPushButton::clicked, this, &Dehisto::afficherHistorique);
+
+    ui->tableHistorique->setColumnCount(2);
+    QStringList headers = {"Indice", "Valeurs"};
+    ui->tableHistorique->setHorizontalHeaderLabels(headers);
+
+    std::srand(std::time(nullptr));
 }
 
-DeHisto::~DeHisto()
+Dehisto::~Dehisto()
 {
     delete ui;
 }
 
-void DeHisto::on_tireDe_clicked()
+void Dehisto::tirerDe()
 {
-    derniereValeur = QRandomGenerator::global()->bounded(1, 7);
-    historiqueDesLancers.append(derniereValeur);
-    ui->labelValeurDe->setText(QString::number(derniereValeur));
+    valeurDe = std::rand() % 6 + 1;
+    historique.append(valeurDe);
 }
 
-void DeHisto::on_afficheValeurDe_clicked()
+void Dehisto::afficherValeurDe()
 {
-    ui->labelValeurDe->setText(QString::number(derniereValeur));
+    ui->labelValeurDe->setText(QString::number(valeurDe));
 }
 
-void DeHisto::on_nombreJets_clicked()
+void Dehisto::simulerNombreJets()
 {
-    historiqueDesLancers.clear();
-    ui->tableHistorique->clearContents();
-
-    for (int i = 0; i < 6; ++i) {
-        int valeur = QRandomGenerator::global()->bounded(1, 7);
-        historiqueDesLancers.append(valeur);
-
-        QTableWidgetItem *item = new QTableWidgetItem(QString::number(valeur));
-        ui->tableHistorique->setItem(i, 0, item);
+    nombreJets = 6;
+    historique.clear();
+    for (int i = 0; i < nombreJets; ++i) {
+        int valeur = std::rand() % 6 + 1;
+        historique.append(valeur);
     }
+    ui->labelNombreJets->setText(QString::number(nombreJets));
 }
 
-void DeHisto::on_historique_clicked()
-{
-    mettreAJourTableau();
-}
-
-void DeHisto::mettreAJourTableau()
+void Dehisto::afficherHistorique()
 {
     ui->tableHistorique->clearContents();
-    ui->tableHistorique->setRowCount(historiqueDesLancers.size());
-
-    for (int i = 0; i < historiqueDesLancers.size(); ++i) {
-        QTableWidgetItem *item = new QTableWidgetItem(QString::number(historiqueDesLancers[i]));
-        ui->tableHistorique->setItem(i, 0, item);
+    ui->tableHistorique->setRowCount(historique.size());
+    for (int i = 0; i < historique.size(); ++i) {
+        QTableWidgetItem *indiceItem = new QTableWidgetItem(QString::number(i + 1));
+        QTableWidgetItem *valeurItem = new QTableWidgetItem(QString::number(historique[i]));
+        ui->tableHistorique->setItem(i, 0, indiceItem);
+        ui->tableHistorique->setItem(i, 1, valeurItem);
     }
 }

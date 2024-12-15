@@ -31,7 +31,7 @@
    <item>
     <widget class="QLabel" name="labelValeurDe">
      <property name="text">
-      <string>Valeur du dé : 0</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -55,7 +55,7 @@
    <item>
     <widget class="QLabel" name="labelScoreTotal">
      <property name="text">
-      <string>Score total : 0</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

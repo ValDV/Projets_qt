@@ -1,95 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DeHisto</class>
- <widget class="QMainWindow" name="DeHisto">
+ <class>Dehisto</class>
+ <widget class="QWidget" name="Dehisto">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>542</width>
-    <height>405</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Gestion des Dés</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="tireDe">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>20</y>
-      <width>141</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>tire le dé</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="afficheValeurDe">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>141</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>affiche la valeur du dé</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="nombreJets">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>120</y>
-      <width>141</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>nombre de jets</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="historique">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>120</y>
-      <width>141</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>historique</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelValeurDe">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>70</y>
-      <width>131</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="tableHistorique">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>160</y>
-      <width>261</width>
-      <height>200</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QPushButton" name="buttonAfficherValeur">
+     <property name="text">
+      <string>affiche la valeur du dé</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="buttonTirerDe">
+     <property name="text">
+      <string>tire le dé</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelValeurDe">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="buttonNombreJets">
+     <property name="text">
+      <string>nombre de jets</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelNombreJets">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="buttonHistorique">
+     <property name="text">
+      <string>historique</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tableHistorique">
+     <property name="showDropIndicator" stdset="0">
+      <bool>true</bool>
+     </property>
+     <property name="columnCount">
+      <number>2</number>
+     </property>
+     <property name="horizontalHeaderLabels" stdset="0">
+      <stringlist>
+       <string>Indice</string>
+       <string>Valeurs</string>
+      </stringlist>
+     </property>
+     <column/>
+     <column/>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

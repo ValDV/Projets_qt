@@ -1,33 +1,63 @@
 #include "dehisto.h"
 #include "ui_dehisto.h"
-#include <QMessageBox>
+#include <QRandomGenerator>
+#include <QTableWidgetItem>
 
-Dehisto::Dehisto(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Dehisto)
+DeHisto::DeHisto(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::DeHisto)
+    , derniereValeur(0)
 {
     ui->setupUi(this);
 
-    connect(ui->buttonSimuler, &QPushButton::clicked, this, &Dehisto::simulerPlusieursJets);
-    connect(ui->buttonAfficher, &QPushButton::clicked, this, &Dehisto::afficherHistorique);
+    ui->tableHistorique->setColumnCount(1);
+    ui->tableHistorique->setRowCount(6);
+    ui->tableHistorique->setHorizontalHeaderLabels({"Valeurs"});
 }
 
-Dehisto::~Dehisto()
+DeHisto::~DeHisto()
 {
     delete ui;
 }
 
-void Dehisto::simulerPlusieursJets()
+void DeHisto::on_tireDe_clicked()
 {
+    derniereValeur = QRandomGenerator::global()->bounded(1, 7);
+    historiqueDesLancers.append(derniereValeur);
+    ui->labelValeurDe->setText(QString::number(derniereValeur));
+}
+
+void DeHisto::on_afficheValeurDe_clicked()
+{
+    ui->labelValeurDe->setText(QString::number(derniereValeur));
+}
+
+void DeHisto::on_nombreJets_clicked()
+{
+    historiqueDesLancers.clear();
     ui->tableHistorique->clearContents();
+
     for (int i = 0; i < 6; ++i) {
-        int valeur = rand() % 6 + 1;
+        int valeur = QRandomGenerator::global()->bounded(1, 7);
+        historiqueDesLancers.append(valeur);
+
         QTableWidgetItem *item = new QTableWidgetItem(QString::number(valeur));
         ui->tableHistorique->setItem(i, 0, item);
     }
 }
 
-void Dehisto::afficherHistorique()
+void DeHisto::on_historique_clicked()
 {
-    QMessageBox::information(this, "Historique", "Voici l'historique des jets !");
+    mettreAJourTableau();
+}
+
+void DeHisto::mettreAJourTableau()
+{
+    ui->tableHistorique->clearContents();
+    ui->tableHistorique->setRowCount(historiqueDesLancers.size());
+
+    for (int i = 0; i < historiqueDesLancers.size(); ++i) {
+        QTableWidgetItem *item = new QTableWidgetItem(QString::number(historiqueDesLancers[i]));
+        ui->tableHistorique->setItem(i, 0, item);
+    }
 }

@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
     });
 
     QObject::connect(buttonDehisto, &QPushButton::clicked, [&]() {
-        Dehisto *dehisto = new Dehisto();
-        dehisto->show();
+            static DeHisto *dehisto = new DeHisto();
+            dehisto->show();
     });
 
     return a.exec();

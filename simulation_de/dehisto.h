@@ -1,26 +1,31 @@
 #ifndef DEHISTO_H
 #define DEHISTO_H
 
-#include <QWidget>
+#include <QMainWindow>
+#include <QVector>
 
-namespace Ui {
-class Dehisto;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class DeHisto; }
+QT_END_NAMESPACE
 
-class Dehisto : public QWidget
+class DeHisto : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Dehisto(QWidget *parent = nullptr);
-    ~Dehisto();
+    DeHisto(QWidget *parent = nullptr);
+    ~DeHisto();
 
 private slots:
-    void simulerPlusieursJets();
-    void afficherHistorique();
+    void on_tireDe_clicked();
+    void on_afficheValeurDe_clicked();
+    void on_nombreJets_clicked();
+    void on_historique_clicked();
 
 private:
-    Ui::Dehisto *ui;
+    Ui::DeHisto *ui;
+    QVector<int> historiqueDesLancers;
+    int derniereValeur;
+    void mettreAJourTableau();
 };
-
 #endif

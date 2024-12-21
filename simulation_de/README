@@ -1,0 +1,20 @@
+Le but de ce projet est de créer une application Qt qui simule des jets de dés aléatoires et retrace l'historique des lancers via une interface.
+
+Etapes :
+Création de l'interface principale (choix):
+- Ajout de deux boutons : un pour accéder au mode de et un pour le mode dehisto.
+
+Création de la classe De :
+- Inclusion des fonctionnalités principales pour tirer un dé, afficher sa valeur, afficher le score total et remettre le score à zéro;
+- Connection des boutons de l'interface Qt aux actions correspondantes.
+
+Création de la classe Dehisto (Dé avec historique) :
+- Hérite de la classe De;
+- Ajout d'un tableau pour enregistrer l'historique des lancers;
+- Inclusion des fonctionnalités pour tirer un ou plusieurs dés et afficher l'historique;
+- Connection des boutons de l'interface Qt aux actions correspondantes, y compris l'affichage de l'historique dans un tableau.
+
+
+############################## Mise en place ##############################
+
+Prérequis : Avoir Qt Creator d'installé pour pouvoir ouvrir le projet
